@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     const boardArray = Array.from(document.querySelectorAll('.square'));
 
-    const conbinationsToWin = [
+    const combinationsToWin = [
         [2,5,8],
         [1,4,7],
         [0,3,6],
@@ -33,12 +33,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     e.target.textContent = 'X';
                     e.target.className += ' X';
                     choice++;
+                    checkForWinner();
                 }
                 else 
                 {
                     e.target.textContent = 'O';
                     e.target.className += ' O';
                     choice++;
+                    checkForWinner();
                 }
             }
     
@@ -60,6 +62,64 @@ document.addEventListener("DOMContentLoaded", function(event) {
         })
 
     });
+
+    //Exercise 4
+    function checkForWinner(){
+        let winnerFound = false;
+        let pos0value , pos1value , pos2value;
+        
+        combinationsToWin.forEach((combo)=>{
+            
+            
+            if(boardArray[combo[0]].hasChildNodes()){
+                
+                pos0value = boardArray[combo[0]].childNodes[0].textContent
+
+            }
+            else{
+                pos0value ='';
+            }
+        
+            if ( boardArray[combo[1]].hasChildNodes()){
+
+                pos1value = boardArray[combo[1]].childNodes[0].textContent
+
+            } 
+            else{
+                pos1value ='';
+                
+            }
+        
+            if(boardArray[combo[2]].hasChildNodes()){
+                
+                pos2value = boardArray[combo[2]].childNodes[0].textContent
+
+            }
+            else{
+                pos2value ='';
+                
+            }
+        
+
+            // check only if spaces have been filled 
+            if(pos1value !== '' && pos2value !== '' && pos2value !== '')
+            {
+               console.log(pos0value + pos1value+ pos2value);
+                if (pos0value == pos1value && pos1value == pos2value)
+                {
+                    winnerFound = true;
+                    console.log(winnerFound);
+                    
+                    let winnerNotification = document.getElementById('status');
+                    winnerNotification.textContent = `Congratulations! ${pos1value} is the Winner!`
+                    winnerNotification.classList += "you-won";
+
+                }
+            }
+        });
+        console.log(winnerFound);
+        return winnerFound;
+    }
 
 
 });
