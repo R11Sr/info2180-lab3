@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         
         combinationsToWin.forEach((combo)=>{
             
-            
+            //Asign values or assign 
             if(boardArray[combo[0]].hasChildNodes()){
                 
                 pos0value = boardArray[combo[0]].childNodes[0].textContent
@@ -119,6 +119,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
         });
         console.log(winnerFound);
         return winnerFound;
+    }
+
+
+    // Exercise 5
+    let btn = document.getElementsByClassName("btn")[0];
+    console.log(btn);
+    btn.addEventListener("click",resetGame);
+
+    function resetGame(){
+        document.querySelectorAll('.square').forEach((e) => {
+            e.classList.remove("X");
+            e.classList.remove("O");
+            e.textContent = '';            
+
+        })
     }
 
 
