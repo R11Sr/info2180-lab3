@@ -49,6 +49,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
     );
     
 
+    // Exercise 3
+    [...children].forEach((e) =>{
+        e.addEventListener("mouseover",function(e){
+            e.target.className += " hover";
+        })
+
+        e.addEventListener("mouseout",function(e){
+            e.target.classList.remove("hover");
+        })
+
+    });
+
 
 });
 
