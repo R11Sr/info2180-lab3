@@ -29,18 +29,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
     {e.addEventListener("click",function (e){
                 if (choice%2 == 0)
                 {
-                   
-                    e.target.textContent = 'X';
-                    e.target.className += ' X';
-                    choice++;
-                    checkForWinner();
+                   if(e.target.textContent == '') {
+
+                       e.target.textContent = 'X';
+                       e.target.className += ' X';
+                       choice++;
+                       checkForWinner();
+                   }
                 }
                 else 
                 {
-                    e.target.textContent = 'O';
-                    e.target.className += ' O';
-                    choice++;
-                    checkForWinner();
+                    if(e.target.textContent == '') {
+                       
+                        e.target.textContent = 'O';
+                        e.target.className += ' O';
+                        choice++;
+                        checkForWinner();
+                    }
                 }
             }
     
@@ -135,6 +140,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         })
     }
+
+    // Exercise 6
+    // Altered code in Ex 2
 
 
 });
