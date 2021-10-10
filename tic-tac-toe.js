@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     //Exercise 4
     function checkForWinner(){
-        let winnerFound = false;
+       
         let pos0value , pos1value , pos2value;
         
         combinationsToWin.forEach((combo)=>{
@@ -109,11 +109,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
             // check only if spaces have been filled 
             if(pos1value !== '' && pos2value !== '' && pos2value !== '')
             {
-               console.log(pos0value + pos1value+ pos2value);
+
                 if (pos0value == pos1value && pos1value == pos2value)
                 {
-                    winnerFound = true;
-                    console.log(winnerFound);
+
                     
                     let winnerNotification = document.getElementById('status');
                     winnerNotification.textContent = `Congratulations! ${pos1value} is the Winner!`
@@ -122,14 +121,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
             }
         });
-        console.log(winnerFound);
-        return winnerFound;
+
     }
 
 
     // Exercise 5
     let btn = document.getElementsByClassName("btn")[0];
-    console.log(btn);
+
     btn.addEventListener("click",resetGame);
 
     function resetGame(){
