@@ -113,15 +113,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 if (pos0value == pos1value && pos1value == pos2value)
                 {
 
-                    
-                    let winnerNotification = document.getElementById('status');
-                    winnerNotification.textContent = `Congratulations! ${pos1value} is the Winner!`
-                    winnerNotification.classList += "you-won";
+                    notifyWinner(pos1value);
+
 
                 }
             }
         });
 
+    }
+
+    function notifyWinner(winner){
+        let winnerNotification = document.getElementById('status');
+        winnerNotification.textContent = `Congratulations! ${winner} is the Winner!`
+        winnerNotification.classList += "you-won";
     }
 
 
@@ -134,9 +138,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.querySelectorAll('.square').forEach((e) => {
             e.classList.remove("X");
             e.classList.remove("O");
-            e.textContent = '';            
-
+            e.textContent = '';   
+           
         })
+        let winnerNotification = document.getElementById('status');
+        winnerNotification.textContent = 'Move your mouse over a square and click to play an X or an O.';
+        winnerNotification.classList.remove("you-won");
     }
 
     // Exercise 6
